@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pizzaria Delícia - As melhores pizzas artesanais da cidade, feitas com ingredientes frescos e tradição italiana. Delivery e retirada.">
+    <meta name="keywords" content="pizzaria, pizza, delivery, comida italiana, rodízio de pizza">
+    <meta name="author" content="Pizzaria Delícia">
+    <meta property="og:title" content="Pizzaria Delícia | As Melhores Pizzas da Cidade">
+    <meta property="og:description" content="Pizzas artesanais feitas com ingredientes frescos e tradição italiana. Peça agora!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pizzariadelicia.com.br">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">
+    <title>Pizzaria Delícia | As Melhores Pizzas da Cidade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://img.icons8.com/color/48/000000/pizza.png" alt="Logo Pizzaria Delícia - Ícone de pizza">
+                <h1>Pizzaria Delícia</h1>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#testimonials">Avaliações</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu mobile">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">As Melhores Pizzas da Cidade</h1>
+                <p class="fade-in delay-1">Feitas com ingredientes frescos e amor, entregues quentinhas na sua porta.</p>
+                <div class="hero-btns fade-in delay-2">
+                    <a href="#menu" class="btn">Ver Menu</a>
+                    <a href="#contact" class="btn btn-outline">Fazer Pedido</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title text-center">Nossa História</h2>
+            <div class="about-container">
+                <div class="about-img fade-in">
+                    <img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Pizzaiolo preparando pizza em forno a lenha">
+                </div>
+                <div class="about-content fade-in delay-1">
+                    <h3>Mais de 20 anos de tradição</h3>
+                    <p>Fundada em 2000 pelo mestre pizzaiolo Giuseppe Florentino, a Pizzaria Delícia começou como uma pequena loja de bairro e rapidamente se tornou referência em pizzas artesanais na cidade.</p>
+                    <p>Nossas pizzas são feitas com massa fermentada naturalmente por 48 horas, molho de tomate caseiro e ingredientes frescos selecionados a dedo. Cada pizza é uma obra de arte que carrega o sabor e a tradição da verdadeira pizza italiana.</p>
+                    <p>Hoje, continuamos mantendo a mesma qualidade e paixão pelo que fazemos, agora com a segunda geração da família Florentino à frente do negócio.</p>
+                    <a href="#menu" class="btn">Conheça nosso menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title text-center">Nosso Menu</h2>
+            
+            <div class="promo-section">
+                <h3 class="promo-title"><i class="fas fa-tag"></i> Promoções da Semana</h3>
+                <div class="promo-items">
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-img">
+                            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Pizza Margherita em promoção">
+                        </div>
+                        <div class="promo-item-content">
+                            <h4>Margherita</h4>
+                            <div class="promo-price">
+                                <span class="old-price">R$ 45,90</span>
+                                <span class="new-price">R$ 39,90</span>
+                            </div>
+                            <button class="add-to-cart" data-id="1" data-name="Margherita (Promo)" data-price="39.90" data-img="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-img">
+                            <img src="https://images.unsplash.com/photo-1620374645498-af6bd681a0bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pizza Pepperoni em promoção">
+                        </div>
+                        <div class="promo-item-content">
+                            <h4>Pepperoni</h4>
+                            <div class="promo-price">
+                                <span class="old-price">R$ 52,90</span>
+                                <span class="new-price">R$ 44,90</span>
+                            </div>
+                            <button class="add-to-cart" data-id="2" data-name="Pepperoni (Promo)" data-price="44.90" data-img="https://images.unsplash.com/photo-1620374645498-af6bd681a0bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="promo-item">
+                        <div class="promo-item-img">
+                            <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Pizza Frango com Catupiry em promoção">
+                        </div>
+                        <div class="promo-item-content">
+                            <h4>Frango c/ Catupiry</h4>
+                            <div class="promo-price">
+                                <span class="old-price">R$ 58,90</span>
+                                <span class="new-price">R$ 49,90</span>
+                            </div>
+                            <button class="add-to-cart" data-id="5" data-name="Frango c/ Catupiry (Promo)" data-price="49.90" data-img="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="classicas">Clássicas</button>
+                <button class="filter-btn" data-filter="especiais">Especiais</button>
+                <button class="filter-btn" data-filter="doces">Doces</button>
+                <button class="filter-btn" data-filter="bebidas">Bebidas</button>
+            </div>
+            <div class="menu-items">
+                
+                <div class="menu-item fade-in" data-category="classicas">
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Pizza Margherita tradicional com mussarela, tomate e manjericão">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Margherita</h3>
+                            <span class="menu-item-price">R$ 45,90</span>
+                        </div>
+                        <p class="menu-item-desc">Molho de tomate, mussarela especial, manjericão fresco e azeite de oliva extra virgem.</p>
+                        <div class="menu-item-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <button class="add-to-cart" data-id="1" data-name="Margherita" data-price="45.90" data-img="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="menu-item fade-in delay-1" data-category="classicas">
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1620374645498-af6bd681a0bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pizza Pepperoni com fatias generosas de pepperoni">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Pepperoni</h3>
+                            <span class="menu-item-price">R$ 52,90</span>
+                        </div>
+                        <p class="menu-item-desc">Molho de tomate, mussarela especial e pepperoni importado em fatias generosas.</p>
+                        <div class="menu-item-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                            <button class="add-to-cart" data-id="2" data-name="Pepperoni" data-price="52.90" data-img="https://images.unsplash.com/photo-1620374645498-af6bd681a0bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="menu-item fade-in delay-2" data-category="classicas">
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pizza Calabresa com cebola roxa">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Calabresa</h3>
+                            <span class="menu-item-price">R$ 48,90</span>
+                        </div>
+                        <p class="menu-item-desc">Molho de tomate, mussarela especial, calabresa artesanal fatiada e cebola roxa.</p>
+                        <div class="menu-item-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            <button class="add-to-cart" data-id="3" data-name="Calabresa" data-price="48.90" data-img="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="menu-item fade-in" data-category="classicas">
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Pizza Quatro Queijos com mussarela, provolone, gorgonzola e parmesão">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Quatro Queijos</h3>
+                            <span class="menu-item-price">R$ 55,90</span>
+                        </div>
+                        <p class="menu-item-desc">Molho de tomate, mussarela especial, provolone, gorgonzola e parmesão ralado na hora.</p>
+                        <div class="menu-item-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <button class="add-to-cart" data-id="4" data-name="Quatro Queijos" data-price="55.90" data-img="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="menu-item fade-in delay-1" data-category="especiais">
+                    <span class="menu-item-badge">Mais Pedida</span>
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Pizza Frango com Catupiry cremoso">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Frango c/ Catupiry</h3>
+                            <span class="menu-item-price">R$ 58,90</span>
+                        </div>
+                        <p class="menu-item-desc">Molho de tomate, mussarela especial, frango desfiado temperado e catupiry original.</p>
+                        <div class="menu-item-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <button class="add-to-cart" data-id="5" data-name="Frango c/ Catupiry" data-price="58.90" data-img="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="menu-item fade-in delay-2" data-category="especiais">
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Pizza Portuguesa com ovos, presunto, cebola e azeitonas">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Portuguesa</h3>
+                            <span class="menu-item-price">R$ 54,90</span>
+                        </div>
+                        <p class="menu-item-desc">Molho de tomate, mussarela especial, presunto, ovos, cebola, pimentão e azeitonas.</p>
+                        <div class="menu-item-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                            <button class="add-to-cart" data-id="6" data-name="Portuguesa" data-price="54.90" data-img="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="menu-item fade-in" data-category="doces">
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1581&q=80" alt="Pizza Doce de Chocolate com Morango">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Chocolate c/ Morango</h3>
+                            <span class="menu-item-price">R$ 49,90</span>
+                        </div>
+                        <p class="menu-item-desc">Chocolate belga derretido, morangos frescos fatiados e leite condensado artesanal.</p>
+                        <div class="menu-item-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <button class="add-to-cart" data-id="7" data-name="Chocolate c/ Morango" data-price="49.90" data-img="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1581&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="menu-item fade-in delay-1" data-category="doces">
+                    <span class="menu-item-badge">Novidade</span>
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pizza Doce Romeu e Julieta com goiabada e queijo">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Romeu e Julieta</h3>
+                            <span class="menu-item-price">R$ 47,90</span>
+                        </div>
+                        <p class="menu-item-desc">Massa leve, goiabada cremosa e queijo minas frescal derretido, finalizada com canela.</p>
+                        <div class="menu-item-footer">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                            <button class="add-to-cart" data-id="8" data-name="Romeu e Julieta" data-price="47.90" data-img="https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="menu-item fade-in delay-2" data-category="bebidas">
+                    <div class="menu-item-img">
+                        <img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Refrigerantes diversos">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Refrigerante 600ml</h3>
+                            <span class="menu-item-price">R$ 8,90</span>
+                        </div>
+                        <p class="menu-item-desc">Coca-Cola, Guaraná, Fanta Laranja, Sprite ou Schweppes Citrus.</p>
+                        <div class="menu-item-footer">
+                            <button class="add-to-cart" data-id="9" data-name="Refrigerante 600ml" data-price="8.90" data-img="https://images.unsplash.com/photo-1553456558-aff63285bdd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suco Natural -->
+                <div class="menu-item fade-in" data-category="bebidas">
+                    <div class="menu-item-img">
+                        <img src="https://www.academiaassai.com.br/sites/default/files/styles/noticia_1020x640/public/sucos_naturais_capa.jpg?itok=MThhZZOC" alt="Sucos naturais de frutas">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-title">
+                            <h3>Suco Natural 500ml</h3>
+                            <span class="menu-item-price">R$ 12,90</span>
+                        </div>
+                        <p class="menu-item-desc">Laranja, Abacaxi com Hortelã, Maracujá ou Morango.</p>
+                        <div class="menu-item-footer">
+                            <button class="add-to-cart" data-id="10" data-name="Suco Natural 500ml" data-price="12.90" data-img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title text-center">Nossa Galeria</h2>
+            <p class="text-center gallery-subtitle">Conheça nosso ambiente e o processo de preparo das pizzas</p>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Forno a lenha da Pizzaria Delícia" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1593246049226-ded77bf90326?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1455&q=80" alt="Pizzaiolo preparando massa de pizza" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1581&q=80" alt="Pizza sendo servida na mesa" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Pizza Frango com Catupiry sendo cortada" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://img.cdndsgni.com/preview/11455207.jpg" alt="Ambiente interno da pizzaria" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Pizzaiolo colocando pizza no forno" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title text-center">O que nossos clientes dizem</h2>
+            <div class="testimonials-container">
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        <p>As melhores pizzas que já comi na vida! A massa é perfeita, crocante por fora e macia por dentro, e os ingredientes são de primeira qualidade. Minha favorita é a Margherita, simplesmente divina!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Foto de Ana Santos" loading="lazy">
+                        <div class="author-info">
+                            <h4>Ana Santos</h4>
+                            <p>Cliente há 5 anos</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in delay-1">
+                    <div class="testimonial-content">
+                        <p>Não tem comparação! Sempre que quero pizza de qualidade, peço na Pizzaria Delícia. O atendimento é excelente e as pizzas chegam sempre quentinhas, mesmo morando um pouco longe. Recomendo a Frango com Catupiry!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Foto de Carlos Oliveira" loading="lazy">
+                        <div class="author-info">
+                            <h4>Carlos Oliveira</h4>
+                            <p>Cliente há 3 anos</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in delay-2">
+                    <div class="testimonial-content">
+                        <p>Descobri essa pizzaria recentemente e já virou minha preferida. As pizzas doces são incríveis, especialmente a de Chocolate com Morango. Meus filhos adoram e sempre pedem nos finais de semana!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto de Mariana Costa" loading="lazy">
+                        <div class="author-info">
+                            <h4>Mariana Costa</h4>
+                            <p>Cliente há 1 ano</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title text-center">Entre em Contato</h2>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Faça seu pedido</h3>
+                    <p>Estamos prontos para atender você! Faça seu pedido por telefone, WhatsApp ou venha nos visitar.</p>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(81) 9 8416-7174</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>(81) 98416-7174</p>
+                            <button id="whatsapp-btn" class="btn whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>alexandreflorentinodev@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>Avenida Conde da Boa Vista, 1234. Recife - Pernambuco</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Terça a Domingo: 18h às 23h<br>Sexta e Sábado: 18h às 00h</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-map fade-in delay-1">
+                    <div id="map" style="height: 100%; border-radius: 10px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sobre Nós</h3>
+                    <p>A Pizzaria Delícia é uma tradição familiar que busca oferecer as melhores pizzas com ingredientes frescos e receitas artesanais.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/alexf.dev?igsh=bTBmZnVrMHh4Nm8w" target="_blank" rel="external" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/message/K7WYLEKTLBX4H1" target="_blank" rel="external" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#testimonials">Avaliações</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Horário</h3>
+                    <ul class="footer-links">
+                        <li>Terça a Quinta: 18h - 23h</li>
+                        <li>Sexta e Sábado: 18h - 00h</li>
+                        <li>Domingo: 18h - 23h</li>
+                        <li>Segunda: Fechado</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Assine nossa newsletter e receba promoções exclusivas!</p>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Seu email" required>
+                        </div>
+                        <button type="submit" class="btn">Assinar</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Pizzaria Delícia. Todos os direitos reservados. Desenvolvido por <a href="https://wa.me/message/K7WYLEKTLBX4H1" target="_blank" rel="external" style="color: var(--accent-color);">Alexandre Florentino</a></p>
+            </div>
+        </div>
+    </footer>
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="close-cart" id="close-cart" aria-label="Fechar carrinho">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            
+            <p class="text-center" id="empty-cart-message">Seu carrinho está vazio</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="btn" id="checkout-btn">Finalizar Pedido</button>
+        </div>
+    </div>
+    <a href="https://wa.me/message/K7WYLEKTLBX4H1" target="_blank" rel="external" class="delivery-btn" aria-label="Fazer pedido">
+        <i class="fas fa-motorcycle"></i>
+        <span>Peça Agora</span>
+    </a>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
