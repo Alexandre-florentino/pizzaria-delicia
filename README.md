@@ -3,7 +3,7 @@
 Este projeto foi desenvolvido como parte de um trabalho acadêmico/profissional para criar um website completo para uma pizzaria fictícia.
 
 ## ✨ Demonstração
-
+https://alexandre-florentino.github.io/pizzaria-delicia/
 
 ## 🚀 Tecnologias Utilizadas
 
